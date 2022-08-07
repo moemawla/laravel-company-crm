@@ -10,14 +10,24 @@
     <body>
         <header class="bg-yellow-400 w-full h-10 flex justify-around items-center">
             <div>
-                <h1 class="font-bold">Company CRM</h1>
+                <h1 class="font-bold"><a href="/companies">Company CRM</a></h1>
             </div>
             <div></div>
             <div>
                 @guest
-                    <a href="/login">login</a>
+                    <span class="mx-2 hover:text-blue-400">
+                        <a href="/login">login</a>
+                    </span>
                 @else
-                    <a href="/logout">logout</a>
+                    <span class="mx-2 hover:text-blue-400">
+                        <a href="/companies">Companies</a>
+                    </span>
+                    <span class="mx-2 hover:text-blue-400">
+                        <a href="/employees">Employees</a>
+                    </span>
+                    <span class="mx-2 hover:text-blue-400">
+                        <a href="/logout">logout</a>
+                    </span>
                 @endguest
             </div>
         </header>
