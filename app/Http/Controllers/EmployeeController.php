@@ -21,7 +21,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::cursorPaginate(10)->withPath('/employees');
+        $employees = Employee::cursorPaginate(10);
 
         return view('employees.index')->with('employees', $employees);
     }

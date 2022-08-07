@@ -17,7 +17,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::cursorPaginate(10)->withPath('/companies');
+        $companies = Company::cursorPaginate(10);
 
         return view('companies.index')->with('companies', $companies);
     }
