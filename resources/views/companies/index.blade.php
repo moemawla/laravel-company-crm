@@ -40,6 +40,8 @@
                         </tbody>
                     </table>
                     <br/>
+                    {{ $companies->links() }}
+                    <br/>
                     <a href="/companies/create" class="text-blue-400 hover:text-blue-600">Create a new company</a>
                 </div>
             </div>

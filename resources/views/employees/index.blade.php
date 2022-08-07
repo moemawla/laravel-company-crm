@@ -44,6 +44,8 @@
                         </tbody>
                     </table>
                     <br/>
+                    {{ $employees->links() }}
+                    <br/>
                     <a href="/employees/create" class="text-blue-400 hover:text-blue-600">Add a new employee</a>
                 </div>
             </div>
