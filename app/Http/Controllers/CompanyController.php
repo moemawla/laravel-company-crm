@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CompanyController extends Controller
 {
     private $rules = [
         'name' => ['required'],
         'email' => ['nullable', 'email'],
+        'logo' => ['nullable', 'image', 'dimensions:min_width=100,min_height=100']
     ];
 
     /**
@@ -41,6 +43,13 @@ class CompanyController extends Controller
         $company->name = $request->name;
         $company->email = $request->email;
         $company->website = $request->website;
+
+        if ($request->hasFile('logo')) {
+            $fileName = now()->getTimestamp().'-'.$request->logo->getClientOriginalName();
+            Storage::putFileAs('public', $request->logo, $fileName);
+            $company->logo = $fileName;
+        }
+
         $company->save();
 
         return redirect()->intended('/');
@@ -79,6 +88,11 @@ class CompanyController extends Controller
     public function destroy(int $id)
     {
         $company = Company::findOrFail($id);
+
+        if ($company->logo && Storage::exists('public/'.$company->log)) {
+            Storage::delete('public/'.$company->logo);
+        }
+
         $company->delete();
 
         return redirect()->intended('/');

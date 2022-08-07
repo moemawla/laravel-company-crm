@@ -22,6 +22,12 @@
                             <h1 class="font-bold">Company Details Form</h1>
                         </div>
                         <br/>
+                        @if ($company->logo)
+                            <div class="flex justify-center mb-4">
+                                <img src="{{ url('storage/'.$company->logo) }}" style="height: 100px; width: 150px;">
+                            </div>
+                            <br/>
+                        @endif
                         <div class="flex justify-between">
                             <label for="name">Name</label>
                             <input id="name" name="name" type="text" value="{{ $company->name }}" class="bg-gray-100 border ml-2">

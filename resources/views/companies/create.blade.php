@@ -14,7 +14,7 @@
                 <br/>
             @endif
             <div class="flex justify-center py-4">
-                <form method="POST" action="/companies">
+                <form method="POST" action="/companies" enctype="multipart/form-data">
                     @csrf
                     <div class="flex justify-center mb-4">
                         <h1 class="font-bold">Create Company Form</h1>
@@ -33,6 +33,11 @@
                     <div class="flex justify-between">
                         <label for="website">Website</label>
                         <input id="website" name="website" type="text" value="{{ old('website') }}" class="bg-gray-100 border ml-2">
+                    </div>
+                    <br/>
+                    <div class="flex justify-between">
+                        <label for="logo">Logo</label>
+                        <input id="logo" name="logo" type="file" class="bg-gray-100 border ml-2">
                     </div>
                     <br/>
                     <div>
