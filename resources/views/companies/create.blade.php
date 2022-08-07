@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="flex justify-center">
-        <div class="border rounded-md h-96 w-96">
+        <div class="border rounded-md min-h-96 w-96 px-2">
             @if ($errors->any())
                 <div class="flex justify-center py-4 text-red-600">
                     <ul>
