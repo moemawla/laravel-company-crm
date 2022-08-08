@@ -37,32 +37,44 @@ The following software/tools must be installed:
 
 4. Set the database credentials in .env
 
-5. Install project dependencies
+    ```
+    DB_CONNECTION=mysql
+    DB_HOST=
+    DB_PORT=
+    DB_DATABASE=
+    DB_USERNAME=
+    DB_PASSWORD=
+    ```
+
+5. Set the credentials for the admin user in .env
+
+    ```
+    ADMIN_EMAIL=
+    ADMIN_PASSWORD=
+    ```
+
+6. Install project dependencies
 
     ```composer install```
 
-6. Generate application key
+7. Generate application key
 
     ```php artisan key:generate```
 
-7. Run database migrations
+8. Run database migrations
 
     ```php artisan migrate```
 
-8. Run database seeders
+9. Run database seeders to create the admin user
 
     ```php artisan db:seed```
 
-9. Create a symbolic link from "public/storage" to "storage/app/public"
+10. Create a symbolic link from "public/storage" to "storage/app/public"
 
     ```php artisan storage:link```
 
-10. Serve the app locally
+11. Serve the app locally
 
     ```php artisan serve```
 
-11. Open the app in the browser and login with the following credentials
-    ```
-    email: admin@gmail.com
-    pass: password
-    ```
+12. Open the app in the browser and login with the admin credentials set in step 5
